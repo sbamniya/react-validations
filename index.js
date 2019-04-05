@@ -39,6 +39,7 @@ export const ValidationTypes = {
   ALPHA: "alpha",
   MAXLENGTH: "maxlength",
   MINLENGTH: "minlength",
+  EQUAL: "equal",
 };
 
 /* 
@@ -84,6 +85,7 @@ export const Validator = (data, validation = {}, messages = {}) => {
       const alpha = ValidationTypes.ALPHA;
       const maxlength = ValidationTypes.MAXLENGTH;
       const minlength = ValidationTypes.MINLENGTH;
+      const equal = ValidationTypes.EQUAL;
       /* validation checks start */
       if ((validations[required] && value === "") || !value) {
         // check for undefined or required
@@ -149,6 +151,12 @@ export const Validator = (data, validation = {}, messages = {}) => {
           `${key} field should be less than ${validations[
             maxValue
           ]} charaters.`;
+        isValid = false;
+      } else if (validations[equal] && value !== data[validations[equal]]) {
+        // check for max value
+        errors[key] =
+          message[equal] ||
+          `${key} and ${validations[equal]} field did not matched.`;
         isValid = false;
       }
       /* Validation check ends */

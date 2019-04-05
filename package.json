@@ -1,12 +1,18 @@
 {
   "name": "js-object-validation",
-  "version": "1.0.7",
-  "description": "Simple object validator written in Pure Javascript.",
+  "version": "1.0.10",
+  "description": "Simple object validator written in Pure Javascript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbamniya/react-validations.git"
+  },
   "keywords": [
+    "form-validator",
+    "object-validator",
     "react-validator",
     "validation",
     "form-validation",
@@ -16,5 +22,9 @@
     "object-property-validation"
   ],
   "author": "Sonu Bamniya",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sbamniya/react-validations/issues"
+  },
+  "homepage": "https://github.com/sbamniya/react-validations#readme"
 }
