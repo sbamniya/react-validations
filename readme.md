@@ -104,6 +104,14 @@ try{
 
 > ValidationTypes.MINLENGTH
 
+#### compare two fields
+
+> ValidationTypes.EQUAL
+
+# Update
+
+Fixed <a href="https://github.com/sbamniya/react-validations/issues/1">Issue #1</a>
+
 ## Want to contribute/update ?
 
 If you have any new update/idea feel free to contact.
