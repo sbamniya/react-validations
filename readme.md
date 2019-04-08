@@ -108,9 +108,19 @@ try{
 
 > ValidationTypes.EQUAL
 
+#### Strong Password
+
+> ValidationTypes.PASSWORD
+
+#### Username
+
+> ValidationTypes.USERNAME
+
 # Update
 
 Fixed <a href="https://github.com/sbamniya/react-validations/issues/1">Issue #1</a>
+
+Added Validations for Password and Username
 
 ## Want to contribute/update ?
 
