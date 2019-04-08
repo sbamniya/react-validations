@@ -104,7 +104,7 @@ try{
 
 > ValidationTypes.MINLENGTH
 
-#### compare two fields
+#### Compare two fields
 
 > ValidationTypes.EQUAL
 

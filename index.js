@@ -25,6 +25,20 @@ const isAlphaNumeric = str => {
 const isAlpha = str => {
   return /^[a-zA-Z ]+$/.test(str);
 };
+/* 
+* Checks whether string is valid username string or not
+*/
+const isValidUsername = str => {
+  return new RegExp("^[a-zA-Z0-9_.]+$").test(str);
+};
+/* 
+* Checks whether string is valid password string or not
+*/
+const isValidPassword = str => {
+  return new RegExp(
+    "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+  ).test(str);
+};
 
 /* 
 * Define the supported validation types
@@ -32,9 +46,11 @@ const isAlpha = str => {
 export const ValidationTypes = {
   REQUIRED: "required",
   EMAIL: "email",
+  USERNAME: "username",
+  PASSWORD: "password",
   NUMERIC: "numeric",
-  MAXVALUE: "max number",
-  MINVALUE: "min numbers",
+  MAXVALUE: "maxnumber",
+  MINVALUE: "minnumbers",
   ALPHA_NUMERIC: "alpha numeric",
   ALPHA: "alpha",
   MAXLENGTH: "maxlength",
@@ -78,6 +94,8 @@ export const Validator = (data, validation = {}, messages = {}) => {
       // store validation types in variables
       const required = ValidationTypes.REQUIRED;
       const email = ValidationTypes.EMAIL;
+      const username = ValidationTypes.USERNAME;
+      const password = ValidationTypes.PASSWORD;
       const numeric = ValidationTypes.NUMERIC;
       const maxValue = ValidationTypes.MAXVALUE;
       const minValue = ValidationTypes.MIN_MINVALUE;
@@ -153,10 +171,20 @@ export const Validator = (data, validation = {}, messages = {}) => {
           ]} charaters.`;
         isValid = false;
       } else if (validations[equal] && value !== data[validations[equal]]) {
-        // check for max value
+        // check for equal values
         errors[key] =
           message[equal] ||
           `${key} and ${validations[equal]} field did not matched.`;
+        isValid = false;
+      } else if (validations[password] && !isValidPassword(value)) {
+        errors[key] =
+          message[password] ||
+          `${key} must contain one uppercase, one lowercase, one number and one special character and should be 8 charater long.`;
+        isValid = false;
+      } else if (validations[username] && !isValidUsername(value)) {
+        errors[key] =
+          message[username] ||
+          `${key} can only have alphanumeric, _ and . values.`;
         isValid = false;
       }
       /* Validation check ends */
@@ -170,3 +198,4 @@ export const Validator = (data, validation = {}, messages = {}) => {
 };
 
 export default Validator;
+
