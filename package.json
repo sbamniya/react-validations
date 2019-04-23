@@ -1,6 +1,6 @@
 {
   "name": "js-object-validation",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Simple object validator written in Pure Javascript",
   "main": "index.js",
   "scripts": {

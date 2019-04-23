@@ -105,7 +105,7 @@ export const Validator = (data, validation = {}, messages = {}) => {
       const minlength = ValidationTypes.MINLENGTH;
       const equal = ValidationTypes.EQUAL;
       /* validation checks start */
-      if ((validations[required] && value === "") || !value) {
+      if (validations[required] && (value === "") || !value) {
         // check for undefined or required
         errors[key] = message[required] || `${key} field is required.`;
         isValid = false;
