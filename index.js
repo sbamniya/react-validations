@@ -51,7 +51,7 @@ export const ValidationTypes = {
   NUMERIC: "numeric",
   MAXVALUE: "maxnumber",
   MINVALUE: "minnumbers",
-  ALPHA_NUMERIC: "alpha numeric",
+  ALPHA_NUMERIC: "alphanumeric",
   ALPHA: "alpha",
   MAXLENGTH: "maxlength",
   MINLENGTH: "minlength",
@@ -109,27 +109,27 @@ export const Validator = (data, validation = {}, messages = {}) => {
         // check for undefined or required
         errors[key] = message[required] || `${key} field is required.`;
         isValid = false;
-      } else if (validations[email] && !isValidEmail(value)) {
+      } else if (validations[email] && value && !isValidEmail(value)) {
         // check for valid email
         errors[key] = message[email] || `${key} field must be a valid email.`;
         isValid = false;
-      } else if (validations[numeric] && !isNumeric(value)) {
+      } else if (validations[numeric] && value && !isNumeric(value)) {
         // check for valid number
         errors[key] = message[numeric] || `${key} field can only have numbers.`;
         isValid = false;
-      } else if (validations[alphaNumeric] && !isAlphaNumeric(value)) {
+      } else if (validations[alphaNumeric] && value && !isAlphaNumeric(value)) {
         // check for alphanumeric value
         errors[key] =
           message[alphaNumeric] ||
           `${key} field can only have aplhabates and numbers.`;
         isValid = false;
-      } else if (validations[alpha] && !isAlpha(value)) {
+      } else if (validations[alpha] && value && !isAlpha(value)) {
         // check for alphabates
         errors[key] =
           message[alpha] || `${key} field can only have aplhabates.`;
         isValid = false;
       } else if (
-        validations[maxlength] &&
+        validations[maxlength] && value &&
         value.length > validations[maxlength]
       ) {
         // check for maxlength
@@ -138,7 +138,7 @@ export const Validator = (data, validation = {}, messages = {}) => {
           `${key} field can only have ${validations[maxlength]} charaters.`;
         isValid = false;
       } else if (
-        validations[minlength] &&
+        validations[minlength] && value &&
         value.length < validations[minlength]
       ) {
         // check for minlength
@@ -149,7 +149,7 @@ export const Validator = (data, validation = {}, messages = {}) => {
           ]} charaters.`;
         isValid = false;
       } else if (
-        validations[minValue] &&
+        validations[minValue] && value &&
         parseFloat(value) < parseFloat(validations[minValue])
       ) {
         // check for min value
@@ -160,7 +160,7 @@ export const Validator = (data, validation = {}, messages = {}) => {
           ]} charaters.`;
         isValid = false;
       } else if (
-        validations[maxValue] &&
+        validations[maxValue] && value &&
         parseFloat(value) > parseFloat(validations[maxValue])
       ) {
         // check for max value
@@ -170,18 +170,18 @@ export const Validator = (data, validation = {}, messages = {}) => {
             maxValue
           ]} charaters.`;
         isValid = false;
-      } else if (validations[equal] && value !== data[validations[equal]]) {
+      } else if (validations[equal] && value && value !== data[validations[equal]]) {
         // check for equal values
         errors[key] =
           message[equal] ||
           `${key} and ${validations[equal]} field did not matched.`;
         isValid = false;
-      } else if (validations[password] && !isValidPassword(value)) {
+      } else if (validations[password] && value && !isValidPassword(value)) {
         errors[key] =
           message[password] ||
           `${key} must contain one uppercase, one lowercase, one number and one special character and should be 8 charater long.`;
         isValid = false;
-      } else if (validations[username] && !isValidUsername(value)) {
+      } else if (validations[username] && value && !isValidUsername(value)) {
         errors[key] =
           message[username] ||
           `${key} can only have alphanumeric, _ and . values.`;
