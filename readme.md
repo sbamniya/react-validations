@@ -29,7 +29,7 @@ or
 ## Usage
 
 ```
-import Validator, { ValidationTypes } from "js-object-validation";
+import Validator from "js-object-validation";
 
 try{
   const objectToValidate = {
@@ -38,18 +38,18 @@ try{
   }
   const validations = {
     email: {
-      [ValidationTypes.EMAIL]: true,
+      email: true,
     },
     password: {
-      [ValidationTypes.MINLENGTH]: 8,
+      minlength: 8,
     }
   }
   const messages = {
     email: {
-      [ValidationTypes.EMAIL]: "Email should be valid email",
+      email: "Email should be valid email",
     },
     password: {
-      [ValidationTypes.MINLENGTH]: "Password should be at least 8 charater long",
+      minlength: "Password should be at least 8 charater long",
     }
   } // this is optional
 
@@ -121,6 +121,10 @@ try{
 Fixed <a href="https://github.com/sbamniya/react-validations/issues/1">Issue #1</a>
 
 Added Validations for Password and Username
+
+# Update 2
+
+Added typescript defination and removed ENUM for clear management
 
 ## Want to contribute/update ?
 
