@@ -39,7 +39,13 @@ const isValidPassword = str => {
     "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
   ).test(str);
 };
-
+/**
+ *
+ */
+export const isValidURL = str => {
+  var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-/]))?/;
+  return regex.test(str);
+};
 /*
  * Main Validator function to validate any object
  */
@@ -104,6 +110,7 @@ export const Validator = (
         const maxlength = "maxlength";
         const minlength = "minlength";
         const equal = "equal";
+        const url = "url";
         /* validation checks start */
         if (validations[required] && (value === "" || !value)) {
           // check for undefined or required
@@ -192,6 +199,9 @@ export const Validator = (
           errors[key] =
             message[username] ||
             `${key} can only have alphanumeric, _ and . values.`;
+          isValid = false;
+        } else if (validations[url] && value && !isValidURL(value)) {
+          errors[key] = message[url] || `${key} should be a valid URL.`;
           isValid = false;
         }
         /* Validation check ends */

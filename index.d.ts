@@ -12,6 +12,7 @@ declare interface ValidatorMethods {
   maxlength?: number;
   minlength?: number;
   equal?: string;
+  url?: boolean;
 }
 declare interface ValidatorMessageMethods {
   required?: string;
@@ -26,6 +27,7 @@ declare interface ValidatorMessageMethods {
   maxlength?: string;
   minlength?: string;
   equal?: string;
+  url?: string;
 }
 
 declare interface ValidatorReturnType {

@@ -66,55 +66,72 @@ try{
 
 ```
 
+<!-- required?: string;
+  email?: string;
+  username?: string;
+  password?: string;
+  numeric?: string;
+  maxnumber?: string;
+  minnumbers?: string;
+  alphanumeric?: string;
+  alpha?: string;
+  maxlength?: string;
+  minlength?: string;
+  equal?: string; -->
+
 ## Validation types Options
 
 #### Required
 
-> ValidationTypes.REQUIRED
+> required
 
 #### Valid email
 
-> ValidationTypes.EMAIL
+> email
 
 #### Valid number
 
-> ValidationTypes.NUMERIC
+> numeric
 
 #### Max number
 
-> ValidationTypes.MAXVALUE
+> maxnumber
 
 #### Min number
 
-> ValidationTypes.MINVALUE
+> minnumbers
 
 #### Valid Alphanumeric
 
-> ValidationTypes.ALPHA_NUMERIC
+> alphanumeric
 
 #### Valid Alphabetic string
 
-> ValidationTypes.ALPHA
+> alpha
 
 #### Maxlength
 
-> ValidationTypes.MAXLENGTH
+> maxlength
 
 #### Min lenght
 
-> ValidationTypes.MINLENGTH
+> minlength
 
 #### Compare two fields
 
-> ValidationTypes.EQUAL
+> equal
 
 #### Strong Password
 
-> ValidationTypes.PASSWORD
+> password
 
 #### Username
 
-> ValidationTypes.USERNAME
+> username
+
+#### Valid URL
+
+> url
 
 # Update
 
