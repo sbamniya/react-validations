@@ -1,4 +1,5 @@
 declare module "js-object-validation";
+
 declare interface ValidatorMethods {
   required?: boolean;
   email?: boolean;
