@@ -1,8 +1,9 @@
 {
   "name": "js-object-validation",
-  "version": "1.0.17",
+  "type": "module",
+  "version": "2.0.0",
   "description": "Simple object validator written in Pure Javascript",
-  "main": "index.js",
+  "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,5 +27,7 @@
   "bugs": {
     "url": "https://github.com/sbamniya/react-validations/issues"
   },
-  "homepage": "https://github.com/sbamniya/react-validations#readme"
+  "homepage": "https://github.com/sbamniya/react-validations#readme",
+  "devDependencies": {},
+  "dependencies": {}
 }
